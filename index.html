@@ -3,12 +3,84 @@
 <head>
     <meta charset="utf-8">
     <title>Memory Card Game by Matas</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 </head>
 <body>
+	<!-- Container for the page -->
+	<div class="container">
+		<h1>Memory Game</h1>
+	<!-- Score, time, restart, menu section -->
+		<section>
+			<ul class="stars">
+	        	<li><i class="fa fa-star"></i></li>
+	        	<li><i class="fa fa-star"></i></li>
+	        	<li><i class="fa fa-star"></i></li>
+			</ul>
+			<span class="moves">0 moves</span>
+			<span class="timeCount">0:03</span>
+			<button class="menu">Menu</button>
+			<div class="restart">
+				<i class="fa fa-repeat"></i>
+			</div>
+		</section>
+	<!-- The container of the game board -->
+		<div class="board-container">
+	<!-- Game cards -->
+			<ul class="board">
+				<li class="card">
+	                <i class="fa fa-diamond"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-paper-plane-o"></i>
+	            </li>
+	            <li class="card match">
+	                <i class="fa fa-anchor"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-bolt"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-cube"></i>
+	            </li>
+	            <li class="card match">
+	                <i class="fa fa-anchor"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-leaf"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-bicycle"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-diamond"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-bomb"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-leaf"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-bomb"></i>
+	            </li>
+	            <li class="card open show">
+	                <i class="fa fa-bolt"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-bicycle"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-paper-plane-o"></i>
+	            </li>
+	            <li class="card">
+	                <i class="fa fa-cube"></i>
+	            </li>
+			</ul>
+		</div>
+	</div>
 	<script src="js/app.js"></script>
 </body>
 </html>
