@@ -1,0 +1,42 @@
+/*Removing list styles and styling for the body*/
+
+* {
+	list-style: none;
+}
+
+body {
+	background-color: #ef473a;
+}
+
+/*Changing font colors*/
+
+h1,
+span,
+.menu,
+.card,
+.stars,
+.restart {
+	color: white;
+}
+
+/*Setting up container and flex values*/
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-around;
+}
+
+
+h1 {
+	flex: 1;
+}
+
+.stars,
+.moves,
+.timeCount,
+.menu,
+.restart {
+	flex: 1;
+}
