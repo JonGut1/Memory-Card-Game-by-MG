@@ -11,10 +11,10 @@
 </head>
 <body>
 	<!-- Container for the page -->
-	<div class="container">
+	<div class="container flexContainer">
 		<h1>Memory Game</h1>
 	<!-- Score, time, restart, menu section -->
-		<section>
+		<section class="panel flexContainer">
 			<ul class="stars">
 	        	<li><i class="fa fa-star"></i></li>
 	        	<li><i class="fa fa-star"></i></li>
@@ -22,15 +22,15 @@
 			</ul>
 			<span class="moves">0 moves</span>
 			<span class="timeCount">0:03</span>
-			<button class="menu">Menu</button>
 			<div class="restart">
+				<button class="menu">Menu</button>
 				<i class="fa fa-repeat"></i>
 			</div>
 		</section>
 	<!-- The container of the game board -->
 		<div class="board-container">
 	<!-- Game cards -->
-			<ul class="board">
+			<ul class="board flexContainer">
 				<li class="card">
 	                <i class="fa fa-diamond"></i>
 	            </li>
