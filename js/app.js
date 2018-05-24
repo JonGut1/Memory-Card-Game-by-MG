@@ -7,7 +7,6 @@ for (var i = 0; i < cards.length; i++) {
 	cardList.push(cards[i]);
 }
 
-
 // Shuffle function from http://stackoverflow.com/a/2450976.
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -34,9 +33,5 @@ function cardHTML() {
 }
 
 // Setting up event listiner for the cards and creating a function that will uncover the card
-
-function cardFlip() {
-	
-}
 
 
