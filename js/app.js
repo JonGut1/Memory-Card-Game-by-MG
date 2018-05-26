@@ -1,9 +1,8 @@
 // List that holds all the cards
 
 const cards = document.querySelectorAll(".card");
-var cardList = [];
-
-for (var i = 0; i < cards.length; i++) {
+const cardList = [];
+for (let i = 0; i < cards.length; i++) {
 	cardList.push(cards[i]);
 }
 
@@ -27,11 +26,22 @@ function shuffle(array) {
 function cardHTML() {
 	const shuffledCards = shuffle(cardList);
 	var dec = document.querySelector('.board');
-	for (var i = 0; i < shuffledCards.length; i++) {
+	for (let i = 0; i < shuffledCards.length; i++) {
 		dec.appendChild(shuffledCards[i]);
-}
+    }
 }
 
 // Setting up event listiner for the cards and creating a function that will uncover the card
+const board = document.querySelector(".board-container");
+ function toggleCard(evt) {
+   if (evt.target && evt.target.matches("LI"))  {
+        evt.target.classList.toggle("flip");
+    }
+ }
+board.addEventListener("click", toggleCard);
+
+
+
+
 
 
