@@ -25,20 +25,67 @@ function shuffle(array) {
 
 function cardHTML() {
 	const shuffledCards = shuffle(cardList);
-	var dec = document.querySelector('.board');
+	const dec = document.querySelector('.board');
 	for (let i = 0; i < shuffledCards.length; i++) {
 		dec.appendChild(shuffledCards[i]);
     }
 }
+cardHTML();
 
 // Setting up event listiner for the cards and creating a function that will uncover the card
+
 const board = document.querySelector(".board-container");
- function toggleCard(evt) {
-   if (evt.target && evt.target.matches("LI"))  {
-        evt.target.classList.toggle("flip");
-    }
- }
 board.addEventListener("click", toggleCard);
+let openCards = [];
+ function toggleCard(evt) {
+    let theTarget = evt.target;
+    if (theTarget && theTarget.matches("LI"))  {
+        theTarget.classList.toggle("flip");
+        openCards.push(theTarget);
+        cardMatch();
+    }  
+ }
+
+// Checking if the two open cards match, setting the delay for the flip class removal if the cards doesn't match. Keeping the cards open if they match.
+function cardMatch() {
+        if (openCards.length > 1) {
+            let card1 = openCards[0];
+            let card2 = openCards[1];
+            if (card1.innerHTML === card2.innerHTML) {
+                openCards = [];
+            } else {
+                setTimeout(function () {
+                            card1.classList.remove("flip");
+                            card2.classList.remove("flip");
+                        }, 600);
+                openCards = [];                
+            }
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
