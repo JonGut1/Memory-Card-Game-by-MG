@@ -47,10 +47,12 @@ let openCards = [];
  }
 
 // Checking if the two open cards match, setting the delay for the flip class removal if the cards doesn't match. Keeping the cards open if they match.
+
 function cardMatch() {
         if (openCards.length > 1) {
             let card1 = openCards[0];
             let card2 = openCards[1];
+            moveCounter();
             if (card1.innerHTML === card2.innerHTML) {
                 openCards = [];
             } else {
@@ -64,7 +66,17 @@ function cardMatch() {
 }
 
 
-
+// Move counter
+let moves = 0;
+function moveCounter() {
+    let movesDisplay = document.querySelector(".moves");
+    moves++; 
+    if (moves === 1) {
+        movesDisplay.textContent = moves + " move";
+    } else {
+        movesDisplay.textContent = moves + " moves";
+    }
+}
 
 
 
