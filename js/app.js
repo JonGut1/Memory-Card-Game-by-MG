@@ -2,6 +2,7 @@
 
 const cards = document.querySelectorAll(".card");
 const cardList = [];
+let matchedCards = [];
 for (let i = 0; i < cards.length; i++) {
 	cardList.push(cards[i]);
 }
@@ -25,9 +26,9 @@ function shuffle(array) {
 
 function cardHTML() {
 	const shuffledCards = shuffle(cardList);
-	const dec = document.querySelector('.board');
+	const deck = document.querySelector('.board');
 	for (let i = 0; i < shuffledCards.length; i++) {
-		dec.appendChild(shuffledCards[i]);
+		deck.appendChild(shuffledCards[i]);
     }
 }
 cardHTML();
@@ -68,8 +69,8 @@ function cardMatch() {
 
 // Move counter
 let moves = 0;
+let movesDisplay = document.querySelector(".moves");
 function moveCounter() {
-    let movesDisplay = document.querySelector(".moves");
     moves++; 
     if (moves === 1) {
         movesDisplay.textContent = moves + " move";
@@ -78,9 +79,67 @@ function moveCounter() {
     }
 }
 
+//Setting up the timer
+const theTimer = document.querySelector(".timeCount");
+const restart = document.querySelector(".restart");
+let timer = [0,0,0,0];
+let interval;
+let timerRunning = false;
+
+board.addEventListener("click", start);
+restart.addEventListener("click", reset);
+
+// Add leading zero to numbers 9 or below (purely for aesthetics):
+function leadingZero(time) {
+  if (time <= 9) {
+    time = "0" + time;
+  }
+  return time;
+}
+
+// Run a standard minute/second/hundredths timer:
+function runTimer() {
+  let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
+  theTimer.textContent = currentTime;
+  timer[3]++;
+
+  timer[0] = Math.floor((timer[3]/100)/60);
+  timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
+  timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
+}
+
+// Start the timer:
+function start() {
+    if (!timerRunning) {
+    timerRunning = true;
+    interval = setInterval(runTimer, 10);
+    }
+}
+
+// Reset everything:
+function reset() {
+  clearInterval(interval);
+  interval = null;
+  timer = [0,0,0,0];
+  timerRunning = false;
+  theTimer.textContent = "00:00:00";
+  moves = 0;
+  movesDisplay.textContent = moves + " moves";
+  cardReset();
+}
 
 
+// Reseting all the cards to original state
 
+function cardReset() {
+    let allCards = document.querySelectorAll(".card");
+    let cardsForReset = [];
+    for (let i = 0; i < allCards.length; i++) {
+    cardsForReset.push(allCards[i]);
+    cardsForReset[i].classList.remove("flip");
+    }
+    cardHTML();
+}
 
 
 
