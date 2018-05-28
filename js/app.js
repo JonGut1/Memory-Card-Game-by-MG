@@ -2,7 +2,6 @@
 
 const cards = document.querySelectorAll(".card");
 const cardList = [];
-let matchedCards = [];
 for (let i = 0; i < cards.length; i++) {
 	cardList.push(cards[i]);
 }
@@ -48,13 +47,14 @@ let openCards = [];
  }
 
 // Checking if the two open cards match, setting the delay for the flip class removal if the cards doesn't match. Keeping the cards open if they match.
-
+const matchedCards = [];
 function cardMatch() {
         if (openCards.length > 1) {
             let card1 = openCards[0];
             let card2 = openCards[1];
             moveCounter();
             if (card1.innerHTML === card2.innerHTML) {
+                matchedCards.push(card1, card2);
                 openCards = [];
             } else {
                 setTimeout(function () {
@@ -126,21 +126,16 @@ function reset() {
   moves = 0;
   movesDisplay.textContent = moves + " moves";
   cardReset();
-}
 
 
 // Reseting all the cards to original state
 
 function cardReset() {
-    let allCards = document.querySelectorAll(".card");
-    let cardsForReset = [];
-    for (let i = 0; i < allCards.length; i++) {
-    cardsForReset.push(allCards[i]);
-    cardsForReset[i].classList.remove("flip");
+    for (let i = 0; i < matchedCards.length; i++) {
+    matchedCards[i].classList.remove("flip");
     }
     cardHTML();
 }
-
 
 
 
