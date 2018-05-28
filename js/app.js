@@ -126,7 +126,7 @@ function reset() {
   moves = 0;
   movesDisplay.textContent = moves + " moves";
   cardReset();
-
+}
 
 // Reseting all the cards to original state
 
