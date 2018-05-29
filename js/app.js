@@ -8,7 +8,7 @@ for (let i = 0; i < cards.length; i++) {
 
 // Shuffle function from http://stackoverflow.com/a/2450976.
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -47,7 +47,8 @@ let openCards = [];
  }
 
 // Checking if the two open cards match, setting the delay for the flip class removal if the cards doesn't match. Keeping the cards open if they match.
-const matchedCards = [];
+let matchedCards = [];
+
 function cardMatch() {
         if (openCards.length > 1) {
             let card1 = openCards[0];
@@ -133,8 +134,12 @@ function reset() {
 function cardReset() {
     for (let i = 0; i < matchedCards.length; i++) {
     matchedCards[i].classList.remove("flip");
-    }
-    cardHTML();
+    } 
+    if (openCards.length < 2 && openCards.length > 0) {
+      openCards[0].classList.remove("flip");
+      openCards = [];
+    } 
+      cardHTML();
 }
 
 
