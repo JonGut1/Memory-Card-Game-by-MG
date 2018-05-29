@@ -50,21 +50,21 @@ let openCards = [];
 let matchedCards = [];
 
 function cardMatch() {
-        if (openCards.length > 1) {
-            let card1 = openCards[0];
-            let card2 = openCards[1];
-            moveCounter();
-            if (card1.innerHTML === card2.innerHTML) {
-                matchedCards.push(card1, card2);
-                openCards = [];
-            } else {
-                setTimeout(function () {
-                            card1.classList.remove("flip");
-                            card2.classList.remove("flip");
-                        }, 600);
-                openCards = [];                
-            }
+    if (openCards.length === 2) {
+        let card1 = openCards[0];
+        let card2 = openCards[1];
+        moveCounter();
+        if (card1.innerHTML === card2.innerHTML) {
+            matchedCards.push(card1, card2);
+            openCards = [];
+        } else {
+            setTimeout(function () {
+                        card1.classList.remove("flip");
+                        card2.classList.remove("flip");
+                    }, 600);
+            openCards = [];                
         }
+    }
 }
 
 
@@ -78,6 +78,7 @@ function moveCounter() {
     } else {
         movesDisplay.textContent = moves + " moves";
     }
+    starRating();
 }
 
 //Setting up the timer
@@ -135,14 +136,26 @@ function cardReset() {
     for (let i = 0; i < matchedCards.length; i++) {
     matchedCards[i].classList.remove("flip");
     } 
-    if (openCards.length < 2 && openCards.length > 0) {
+    if (openCards.length === 1) {
       openCards[0].classList.remove("flip");
       openCards = [];
     } 
       cardHTML();
 }
 
-
+// Making stars to dissapear after every 10 moves
+/*
+const stars = document.querySelector(".stars");
+function starRating() {
+  if (moves === 10) {
+    stars.style.visibility = "hidden";
+  } else if (moves === 20) {
+    stars.style.visibility = "hidden";
+  } else if (moves === 30) {
+    stars.style.visibility = "hidden";
+  }
+}
+*/
 
 
 
