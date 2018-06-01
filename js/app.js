@@ -138,16 +138,24 @@ function start() {
 }
 
 /** 
-* @description Reset function, it gets activated after reset button is clicked. It resets the move count, timer, stars, flips back all the cards
+* @description Reseting the timer. This function is called at reset() and openMenu()
 */
-const restart = document.querySelector(".restart");
-restart.addEventListener("click", reset);
-function reset() {
+
+function resetTimer() {
   clearInterval(interval);
   interval = null;
   timer = [0,0,0,0];
   timerRunning = false;
   theTimer.textContent = "00:00:00";
+}
+
+/** 
+* @description Reset function, it gets activated after reset button is clicked. It resets the move count, timer, stars, flips back all the cards
+*/
+const restart = document.querySelector(".restart");
+restart.addEventListener("click", reset);
+function reset() {
+  resetTimer();
   moves = 0;
   movesDisplay.textContent = moves + " moves";
   stars[0].firstElementChild.style.visibility = "visible";
@@ -191,17 +199,38 @@ function starRating() {
 * @description Starting the game after clicking start. Removing the modal and revealing the game and the panel
 */
 
-
 const startButton = document.querySelector(".start");
 const panel = document.querySelector(".panel");
 const startMenu = document.querySelector(".startMenu");
 startButton.addEventListener("click", gameStart);
-
 function gameStart() {
   panel.style.visibility = "visible";
   startMenu.style.visibility = "hidden";
   reset();
 }
+
+
+
+/** 
+* @description Opening 'MENU' modal after clicking the menu. The game gets restarted after menu is clicked
+*/
+
+const menu = document.querySelector(".menu");
+menu.addEventListener("click", openMenu);
+
+function openMenu() {
+  panel.style.visibility = "hidden";
+  startMenu.style.visibility = "visible";
+  stars[0].firstElementChild.style.visibility = "hidden";
+  stars[1].firstElementChild.style.visibility = "hidden";
+  stars[2].firstElementChild.style.visibility = "hidden";
+  resetTimer();
+}
+
+
+
+
+
 
 
 
