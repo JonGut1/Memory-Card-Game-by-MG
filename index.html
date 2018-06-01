@@ -16,11 +16,11 @@
 			<h1 class="heading">Memory Game</h1>
 		</header>
 	<!-- Score, time, restart, menu section -->
-		<section class="panel flexContainer">
+		<section class="panel flexContainer" style="visibility: hidden;">
 			<ul class="stars">
-	        	<li><i class="fa fa-star" style="visibility: visible;"></i></li>
-	        	<li><i class="fa fa-star" style="visibility: visible;"></i></li>
-	        	<li><i class="fa fa-star" style="visibility: visible;"></i></li>
+	        	<li><i class="fa fa-star" style="visibility: hidden;"></i></li>
+	        	<li><i class="fa fa-star" style="visibility: hidden;"></i></li>
+	        	<li><i class="fa fa-star" style="visibility: hidden;"></i></li>
 			</ul>
 			<span class="moves">0 moves</span>
 			<span class="timeCount">00:00:00</span>
@@ -114,6 +114,13 @@
 	                </div>
 	            </li>
 			</ul>
+			<div class="startMenu">
+				<h2 class="startHeader">Press "Start" to start the game</h2>
+				<div class="menuButtons">
+					<button class="start">Start</button>
+					<button class="highscore">Highscore</button>					
+				</div>
+			</div>			
 		</div>
 	</div>
 	<script src="js/app.js"></script>
