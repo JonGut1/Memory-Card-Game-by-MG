@@ -100,12 +100,9 @@ function moveCounter() {
 * @description Setting up the variables for stopwatch
 */
 const theTimer = document.querySelector(".timeCount");
-const restart = document.querySelector(".restart");
 let timer = [0,0,0,0];
 let interval;
 let timerRunning = false;
-
-restart.addEventListener("click", reset);
 
 /** 
 * @description Add leading zero to numbers 9 or below (purely for aesthetics)
@@ -143,6 +140,8 @@ function start() {
 /** 
 * @description Reset function, it gets activated after reset button is clicked. It resets the move count, timer, stars, flips back all the cards
 */
+const restart = document.querySelector(".restart");
+restart.addEventListener("click", reset);
 function reset() {
   clearInterval(interval);
   interval = null;
@@ -188,16 +187,21 @@ function starRating() {
 }
 
 
+/** 
+* @description Starting the game after clicking start. Removing the modal and revealing the game and the panel
+*/
 
 
+const startButton = document.querySelector(".start");
+const panel = document.querySelector(".panel");
+const startMenu = document.querySelector(".startMenu");
+startButton.addEventListener("click", gameStart);
 
-
-
-
-
-
-
-
+function gameStart() {
+  panel.style.visibility = "visible";
+  startMenu.style.visibility = "hidden";
+  reset();
+}
 
 
 
