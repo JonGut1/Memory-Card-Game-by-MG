@@ -217,7 +217,6 @@ function gameStart() {
 
 const menu = document.querySelector(".menu");
 menu.addEventListener("click", openMenu);
-
 function openMenu() {
   panel.style.visibility = "hidden";
   startMenu.style.visibility = "visible";
