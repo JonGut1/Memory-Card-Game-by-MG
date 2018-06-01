@@ -51,6 +51,7 @@ let openCards = [];
  function toggleCard(evt) {
     let theTarget = evt.target;
     if (theTarget && theTarget.matches("LI"))  {
+        start();
         theTarget.classList.toggle("flip");
         openCards.push(theTarget);
         cardMatch();
@@ -104,7 +105,6 @@ let timer = [0,0,0,0];
 let interval;
 let timerRunning = false;
 
-board.addEventListener("click", start);
 restart.addEventListener("click", reset);
 
 /** 
@@ -131,7 +131,7 @@ function runTimer() {
 }
 
 /** 
-* @description Starting the timer. This function is called when the first card is flipped
+* @description Starting the timer. This function is called at toggleCard(evt) when the first card is flipped
 */
 function start() {
     if (!timerRunning) {
@@ -178,9 +178,9 @@ function cardReset() {
 
 const stars = document.querySelectorAll(".stars li");
 function starRating() {
-  if (moves === 10) {
+  if (moves === 15) {
     stars[2].firstElementChild.style.visibility = "hidden";
-  } else if (moves === 20) {
+  } else if (moves === 25) {
     stars[1].firstElementChild.style.visibility = "hidden";
   } else if (moves === 30) {
     stars[0].firstElementChild.style.visibility = "hidden";
