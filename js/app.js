@@ -71,6 +71,7 @@ function cardMatch() {
         if (card1.innerHTML === card2.innerHTML) {
             matchedCards.push(card1, card2);
             openCards = [];
+            winner();
         } else {
             setTimeout(function () {
                         card1.classList.remove("flip");
@@ -177,6 +178,7 @@ function cardReset() {
       openCards = [];
     } 
       cardHTML();
+      matchedCards = [];
 }
 
 /** 
@@ -209,6 +211,16 @@ function gameStart() {
   reset();
 }
 
+/** 
+* @description Funtions that hides the panel. It's user on the start menu and winner's modal
+*/
+
+function panelHidden() {
+  panel.style.visibility = "hidden";
+  stars[0].firstElementChild.style.visibility = "hidden";
+  stars[1].firstElementChild.style.visibility = "hidden";
+  stars[2].firstElementChild.style.visibility = "hidden";
+}
 
 
 /** 
@@ -218,19 +230,25 @@ function gameStart() {
 const menu = document.querySelector(".menu");
 menu.addEventListener("click", openMenu);
 function openMenu() {
-  panel.style.visibility = "hidden";
   startMenu.style.visibility = "visible";
-  stars[0].firstElementChild.style.visibility = "hidden";
-  stars[1].firstElementChild.style.visibility = "hidden";
-  stars[2].firstElementChild.style.visibility = "hidden";
+  panelHidden();
   resetTimer();
 }
 
 
+/** 
+* @description Winners modal appear when the game is completed
+*/
 
 
+function winner() {
+  const winModal = document.querySelector(".winModal");
+  if (matchedCards.length === 16) {
+    winModal.style.visibility = "visible";
+    panelHidden();
 
-
+  }
+}
 
 
 

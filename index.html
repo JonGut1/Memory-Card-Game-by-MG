@@ -114,21 +114,29 @@
 	                </div>
 	            </li>
 			</ul>
-			<div class="startMenu">
+			<div class="startMenu modalMain">
 				<h2 class="startHeader">Press "Start" to start the game</h2>
 				<div class="menuButtons">
 					<button class="start">Start</button>
 					<button class="highscore">Highscore</button>					
 				</div>
 			</div>	
-			<div class="winModal startMenu">
-				<h2 class="congratsHeader">Winner winner chicken dinner!</h2>
-				<ul class="scoreTable">
-					<li class="playTime">Time it took you: <span></span></li>
-					<li class="score">Your score: <span></span></li>
-					<li class="starCount">Stars: <span></span></li>
-					<li class="totalMoves">Moves: <span></span></li>
-				</ul>
+			<div class="winModal modalMain" style="visibility: hidden;">
+				<h2 class="congratsHeader">Winner winner<br>chicken dinner!</h2>
+				<div class="scoreTable">
+					<span class="playTime">Time it took you: </span>
+					<span class="score">Your score: </span>
+					<span class="starCount">Stars: </span>
+					<span class="totalMoves">Moves: </span>
+				</div>
+				<div class="scoreInput">
+					<input type="text" name="name" class="name" placeholder="Name">
+					<button class="submit">Submit</button>
+				</div>
+				<div class="winButtons">
+					<button class="highWinner">Highscore</button>
+					<button class="highRestart">Restart</button>
+				</div>
 			</div>			
 		</div>			
 	</div>
