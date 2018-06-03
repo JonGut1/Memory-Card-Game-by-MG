@@ -212,10 +212,19 @@ body {
 	margin: .625em;
 	border-radius: 5px;
 	transition: .6s;
+	-webkit-transition: .6s;
+	-ms-transition: .6s;
+	-moz-transition: .6s;
 	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
 	position: relative;
 	perspective: 1000;
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;	
 	background: rgba(252,234,187,1);
 	background: -moz-radial-gradient(center, ellipse cover, rgba(252,234,187,1) 0%, rgba(233,176,0,1) 67%, rgba(233,176,0,1) 100%);
 	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(252,234,187,1)), color-stop(67%, rgba(233,176,0,1)), color-stop(100%, rgba(233,176,0,1)));
@@ -239,13 +248,22 @@ body {
 	align-items: center;
 	justify-content: center;
 	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
 	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
 	background: rgb(150,201,61);
 	background: radial-gradient(circle, rgba(150,201,61,1) 21%, rgba(0,176,155,1) 100%);
 }
 
 .flip {
 	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
 }
 
 
