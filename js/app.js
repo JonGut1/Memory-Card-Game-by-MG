@@ -118,6 +118,7 @@ function leadingZero(time) {
 /** 
 * @description Run a standard minute/second/hundredths timer. The functions is called at star(), with an interbval of 10 miliseconds
 */
+
 function runTimer() {
   let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
   theTimer.textContent = currentTime;
@@ -162,6 +163,7 @@ function reset() {
   stars[0].firstElementChild.style.visibility = "visible";
   stars[1].firstElementChild.style.visibility = "visible";
   stars[2].firstElementChild.style.visibility = "visible";
+  starsLeft = 3;
   cardReset();
 }
 
@@ -186,13 +188,17 @@ function cardReset() {
 */
 
 const stars = document.querySelectorAll(".stars li");
+  let starsLeft = 3;
 function starRating() {
   if (moves === 15) {
     stars[2].firstElementChild.style.visibility = "hidden";
+    starsLeft--; 
   } else if (moves === 25) {
     stars[1].firstElementChild.style.visibility = "hidden";
+    starsLeft--;
   } else if (moves === 30) {
     stars[0].firstElementChild.style.visibility = "hidden";
+    starsLeft--;
   }
 }
 
@@ -240,15 +246,57 @@ function openMenu() {
 * @description Winners modal appear when the game is completed
 */
 
+const winModal = document.querySelector(".winModal");
 
 function winner() {
-  const winModal = document.querySelector(".winModal");
   if (matchedCards.length === 16) {
+    gameStats();
     winModal.style.visibility = "visible";
     panelHidden();
 
   }
 }
+
+
+
+/** 
+* @description Adding the game statistics and score to the Winner's Modal
+*/
+
+function gameStats() {
+  const playTime = document.querySelector(".playTime");
+  const score = document.querySelector(".score");
+  const starCount = document.querySelector(".starCount");
+  const totalMoves = document.querySelector(".totalMoves");
+
+  let seconds = (timer[0] * 60) + timer[1]; 
+  let totalScore = ((40 - moves) + (100 - seconds)) * 10;
+  let timeStopped = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
+
+  clearInterval(interval);
+
+  playTime.textContent = timeStopped;
+  starCount.textContent = starsLeft;
+  totalMoves.textContent = moves;
+  score.textContent = totalScore;
+
+}
+
+
+/** 
+* @description Restarting the game when clicking the resart button in the Winner's modal
+*/
+
+
+const winnerRestart= document.querySelector(".highRestart");
+winnerRestart.addEventListener("click", winnerStart);
+
+function winnerStart() {
+  winModal.style.visibility = "hidden";
+  gameStart();
+}
+
+
 
 
 
