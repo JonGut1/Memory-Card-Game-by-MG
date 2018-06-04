@@ -61,6 +61,11 @@
 	.modalMain {
 		width: 99vw;
 	}
+
+	.boarder-container {
+		padding-top: .3em;
+		padding-bottom: .3em;
+	}
 }
 
 @media screen and (max-width: 514px) and (min-width: 320px) {
@@ -136,6 +141,11 @@
 		width: 23vw;
 		height: 23vw;
 		margin: .2em;
+	}
+
+	.board-container {
+		padding-top: .2em;
+		padding-bottom: .2em;
 	}
 }
 
