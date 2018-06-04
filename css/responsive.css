@@ -1,0 +1,182 @@
+/*Layout change up to 608px*/
+
+@media screen and (max-width: 608px) and (min-width: 514px) {
+	.board-container,
+	.panel,
+	.modalMain {
+		width: 97vw;
+	}
+
+	.menuButtons {
+		margin-top: 6em;
+	}
+}
+
+/*Layout changes below 580px*/
+
+
+@media screen and (max-width: 580px) {
+	*,
+	.startHeader,
+	.heading  {
+		letter-spacing: 0;
+	}
+
+	.start,
+	.highscore {
+		width: 60vw;
+		height: 20vw;
+	}
+}
+
+@media screen and (max-width: 580px) and (min-width: 514px) {
+
+	.card,
+	.back {
+		width: 20vw;
+		height: 20vw;
+	}
+
+	.menuButtons {
+		margin-top: 4.5em;
+	}
+
+	.stars,
+	.moves,
+	.timeCount {
+		font-size: 1.5em;
+	}
+
+	.menu {
+		font-size: 1.2em;
+	}
+
+}
+
+/*Layout changes below 514px*/
+
+@media screen and (max-width: 514px) {
+	.board-container,
+	.panel,
+	.modalMain {
+		width: 99vw;
+	}
+}
+
+@media screen and (max-width: 514px) and (min-width: 320px) {
+
+	.card,
+	.back {
+		width: 22vw;
+		height: 22vw;
+		margin: .3em;
+	}
+
+	.menuButtons {
+		margin-top: 3.5em;
+	}
+
+	.stars,
+	.moves,
+	.timeCount {
+		font-size: 1.4em;
+		justify-content: space-around;
+	}
+
+	.menu {
+		font-size: 1.1em;
+	}
+
+	.stars {
+		width: 15%;
+	}
+
+	.moves {
+		width: 25%;
+
+	}
+
+	.restart {
+		width: 15%;
+		font-size: 1.7em;
+	}
+
+	.timeCount {
+		width: 25%;
+	}
+
+	.menu {
+		width: 20%;
+		justify-content: space-around;
+		padding: .2em 0 .2em 0;
+	}
+
+}
+
+
+/*Layout changes below 415px*/
+
+@media screen and (max-width: 415px) and (min-width: 320px) {
+	.startHeader {
+		font-size: 1.3em;
+	}
+
+	.heading {
+		font-size: 2em;
+	}
+
+	.start,
+	.highscore {
+		width: 55vw;
+		height: 17vw;
+		font-size: 1.3em;
+	}
+	.card,
+	.back {
+		width: 23vw;
+		height: 23vw;
+		margin: .2em;
+	}
+}
+
+
+/*Layout changes below 365px*/
+
+@media screen and (max-width: 365px) {
+	.card,
+	.back {
+		width: 22vw;
+		height: 22vw;
+		margin: .2em;
+	}
+
+	.menu {
+		font-size: 1em;
+	}
+
+	.stars {
+		width: 15%;
+		font-size: 1.2em;
+	}
+
+	.moves {
+		width: 30%;
+		font-size: 1.2em;
+	}
+
+	.restart {
+		width: 10%;
+		font-size: 1.6em;
+	}
+
+	.timeCount {
+		width: 25%;
+		font-size: 1.2em;
+	}
+
+}
+
+
+
+
+
