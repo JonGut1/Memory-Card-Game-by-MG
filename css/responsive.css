@@ -66,16 +66,16 @@
 		padding-top: .3em;
 		padding-bottom: .3em;
 	}
+
+	.card {
+		width: 22vw;
+		height: 22vw;
+		margin: .3em;	
+	}
 }
 
 @media screen and (max-width: 514px) and (min-width: 320px) {
 
-	.card,
-	.back {
-		width: 22vw;
-		height: 22vw;
-		margin: .3em;
-	}
 
 	.menuButtons {
 		margin-top: 3.5em;
@@ -136,8 +136,7 @@
 		height: 17vw;
 		font-size: 1.3em;
 	}
-	.card,
-	.back {
+	.card {
 		width: 23vw;
 		height: 23vw;
 		margin: .2em;
@@ -153,8 +152,7 @@
 /*Layout changes below 365px*/
 
 @media screen and (max-width: 365px) {
-	.card,
-	.back {
+	.card {
 		width: 22vw;
 		height: 22vw;
 		margin: .2em;
