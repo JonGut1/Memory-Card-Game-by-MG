@@ -10,6 +10,10 @@
 	.menuButtons {
 		margin-top: 6em;
 	}
+
+	.winModal {
+		padding-top: 1em;
+	}
 }
 
 /*Layout changes below 580px*/
@@ -71,6 +75,34 @@
 		width: 22vw;
 		height: 22vw;
 		margin: .3em;	
+	}
+
+	.scoreInput {
+		margin: 0 0 2em 0;
+		font-size: 1em;
+	}
+
+	.scoreTable {
+		margin-bottom: 1em;
+		font-size: 1.3em;
+	}
+
+
+	.submit {
+		padding: .2em;
+	}
+
+	.button {
+		letter-spacing: 0;
+	}
+
+	.highWinner, 
+	.highRestart {
+		font-size: 1em; 
+	}
+
+	.congratsHeader {
+		line-height: 1.2em;
 	}
 }
 
@@ -146,6 +178,35 @@
 		padding-top: .2em;
 		padding-bottom: .2em;
 	}
+
+	
+	.scoreInput {
+		margin: 0 0 1em 0;
+		font-size: .9em;
+	}
+
+	.scoreTable {
+		margin-bottom: .9em;
+		font-size: 1em;
+	}
+
+
+	.submit {
+		padding: .2em;
+	}
+
+	.button {
+		letter-spacing: 0;
+	}
+
+	.highWinner, 
+	.highRestart {
+		font-size: .9em; 
+	}
+
+	.congratsHeader {
+		line-height: 1em;
+	}
 }
 
 
@@ -181,6 +242,7 @@
 		width: 25%;
 		font-size: 1.2em;
 	}
+
 
 }
 
