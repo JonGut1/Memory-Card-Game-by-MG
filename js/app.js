@@ -253,7 +253,7 @@ function winner() {
     gameStats();
     winModal.style.visibility = "visible";
     panelHidden();
-
+    cardReset();
   }
 }
 
