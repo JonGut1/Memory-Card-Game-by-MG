@@ -130,7 +130,8 @@ body {
 }
 
 .start:hover,
-.highscore:hover {
+.highscore:hover,
+.goBack:hover {
 	background: #E44D26;
 }
 
@@ -352,8 +353,20 @@ body {
 	opacity: 0;
 }
 
+/*Highscore modal*/
 
+.goBack {
+	display: flex;
+	justify-content: center;
+	width: 15%;
+	padding: .5em;
+	margin: .5em;
+}
 
+.scoreHeader {
+	padding: 0;
+	margin-bottom: 1em;
+}
 
 
 
