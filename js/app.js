@@ -301,6 +301,26 @@ function winnerStart() {
 */
 
 
+const highscore = document.querySelectorAll(".highscore");
+const highscoreModal = document.querySelector(".highscoreModal");
+const goBack = document.querySelector(".goBack");
+highscore[0].addEventListener("click", showHighscore);
+highscore[1].addEventListener("click", showHighscore);
+goBack.addEventListener("click", backMenu);
+
+function showHighscore() {
+  highscoreModal.style.visibility = "visible";
+}
+
+
+function backMenu() {
+  highscoreModal.style.visibility = "hidden";
+}
+
+
+
+
+
 
 
 

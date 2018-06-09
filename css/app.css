@@ -194,6 +194,9 @@ body {
 	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
+	-ms-tap-highlight-color: transparent;
 }
 
 .board-container {
@@ -205,9 +208,6 @@ body {
 	background: #E44D26;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(#F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(#F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	-webkit-tap-highlight-color: transparent;
-	-moz-tap-highlight-color: transparent;
-	-ms-tap-highlight-color: transparent;
 }
 
 .card {
