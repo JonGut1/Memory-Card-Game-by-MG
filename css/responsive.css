@@ -31,6 +31,10 @@
 		width: 60vw;
 		height: 20vw;
 	}
+	.highWinner {
+		height: 3em;
+    	width: 10em;
+	}
 }
 
 @media screen and (max-width: 580px) and (min-width: 514px) {
@@ -69,6 +73,11 @@
 	.boarder-container {
 		padding-top: .3em;
 		padding-bottom: .3em;
+	}
+
+	.highWinner {
+		height: 3em;
+    	width: 10em;
 	}
 
 	.card {
@@ -168,6 +177,12 @@
 		height: 17vw;
 		font-size: 1.3em;
 	}
+
+	.highWinner {
+		height: 3em;
+    	width: 10em;
+	}
+
 	.card {
 		width: 23vw;
 		height: 23vw;
@@ -243,8 +258,19 @@
 		font-size: 1.2em;
 	}
 
+	.highWinner, 
+	.highRestart {
+		font-size: .7em; 
+	}
+
+	.congratsHeader {
+		font-size: 1.5em;
+	}
+
 
 }
+
+
 
 
 

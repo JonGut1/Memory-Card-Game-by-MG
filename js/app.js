@@ -296,10 +296,9 @@ function winnerStart() {
   gameStart();
 }
 
-
-
-
-
+/** 
+* @description Opening Highscore modal when clicked on Highscore button
+*/
 
 
 
