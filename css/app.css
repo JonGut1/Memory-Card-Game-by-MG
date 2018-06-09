@@ -205,6 +205,9 @@ body {
 	background: #E44D26;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(#F16529, #E44D26);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(#F16529, #E44D26); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent;
+	-ms-tap-highlight-color: transparent;
 }
 
 .card {
@@ -234,9 +237,6 @@ body {
 	background: -ms-radial-gradient(center, ellipse cover, rgba(252,234,187,1) 0%, rgba(233,176,0,1) 67%, rgba(233,176,0,1) 100%);
 	background: radial-gradient(ellipse at center, rgba(252,234,187,1) 0%, rgba(233,176,0,1) 67%, rgba(233,176,0,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#e9b000', GradientType=1 );
-	-webkit-tap-highlight-color: transparent;
-	-moz-tap-highlight-color: transparent;
-	-ms-tap-highlight-color: transparent;
 }
 
 
@@ -261,9 +261,6 @@ body {
 	-moz-transform: rotateY(180deg);
 	background: rgb(150,201,61);
 	background: radial-gradient(circle, rgba(150,201,61,1) 21%, rgba(0,176,155,1) 100%);
-	-webkit-tap-highlight-color: transparent;
-	-moz-tap-highlight-color: transparent;
-	-ms-tap-highlight-color: transparent;
 }
 
 .flip {
