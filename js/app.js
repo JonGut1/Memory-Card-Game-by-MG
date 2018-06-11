@@ -299,10 +299,9 @@ function winnerStart() {
 * @description Opening Highscore modal when clicked on Highscore button and going back when clicking Back
 */
 
-
-const highscore = document.querySelectorAll(".highscore");
 const highscoreModal = document.querySelector(".highscoreModal");
 const goBack = document.querySelector(".goBack");
+const highscore = document.querySelectorAll(".highscore");
 highscore[0].addEventListener("click", showHighscore);
 highscore[1].addEventListener("click", showHighscore);
 goBack.addEventListener("click", backMenu);
@@ -320,21 +319,21 @@ function backMenu() {
 * @description Storing the scores locally
 */
 
-let gameNumber = 0;
-const submit = document.querySelector(".submit");
-submit.addEventListener("click", storingStats);
+/** 
+* @description Storing the scores locally
+*/
 
-
-function storingStats() {
-
-  let StorageObject = function (username, score, time, moves, stars) {
-  this.username = username;
-  this.score = score;
-  this.time = time;
-  this.moves = moves;
-  this.stars = stars;
+let StorageObject = {
+  username : [],
+  score : [],
+  time : [],
+  moves : [],
+  stars : []
 }
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", storeScores);
 
+function storeScores() {
   const input = document.querySelector(".name");
   const username = input.value;
   const score = document.querySelector(".score").textContent;
@@ -343,40 +342,107 @@ function storingStats() {
   const stars = document.querySelector(".starCount").textContent;
 
   if (username && score && time && moves && stars) {
-      gameNumber++;
+    StorageObject.username.push(username);
+    StorageObject.score.push(score);
+    StorageObject.time.push(time);
+    StorageObject.moves.push(moves);
+    StorageObject.stars.push(stars);
 
-      let statistics = [
-    new StorageObject(username, score, time, moves, stars)
-  ];
-  localStorage.setItem(gameNumber, JSON.stringify(statistics));
-  const data = JSON.parse(localStorage.getItem(gameNumber));
-  creatingElements(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
-  console.log(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
-  console.log(data.username, data.score, data.time, data.moves, data.stars);
+    localStorage.setItem("statistics", JSON.stringify(StorageObject));
+    const data = JSON.parse(localStorage.getItem("statistics"));
+    console.log(data);
+    createElement();
+
+
+
   }
-
+  console.log(StorageObject);
 }
 
-function creatingElements(name, score, time, moves, stars) {
-  const table = document.querySelector(".table tbody");
-  const tr = document.createElement("tr");
-  const tdName = document.createElement("td");
-  const tdScore = document.createElement("td");
-  const tdTime = document.createElement("td");
-  const tdMoves = document.createElement("td");
-  const tdStars = document.createElement("td");
-  tdName.textContent = name;
-  tdScore.textContent = score;
-  tdTime.textContent = time;
-  tdMoves.textContent = moves;
-  tdStars.textContent = stars;
-  tr.appendChild(tdName);
-  tr.appendChild(tdScore);
-  tr.appendChild(tdTime);
-  tr.appendChild(tdMoves);
-  tr.appendChild(tdStars);
-  table.appendChild(tr);
+
+function createElement() {
+      const table = document.querySelector(".table tbody");
+      const tr = document.createElement("tr");
+      const tdName = document.createElement("td");
+      const tdScore = document.createElement("td");
+      const tdTime = document.createElement("td");
+      const tdMoves = document.createElement("td");
+      const tdStars = document.createElement("td");
+      tdName.textContent = data.username[0];
+      tdScore.textContent = data.score[0];
+      tdTime.textContent = data.time[0];
+      tdMoves.textContent = data.moves[0];
+      tdStars.textContent = data.stars[0];
+      tr.appendChild(tdName);
+      tr.appendChild(tdScore);
+      tr.appendChild(tdTime);
+      tr.appendChild(tdMoves);
+      tr.appendChild(tdStars);
+      table.appendChild(tr);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function storingStats() {
+
+//   const input = document.querySelector(".name");
+//   const username = input.value;
+//   const score = document.querySelector(".score").textContent;
+//   const time = document.querySelector(".playTime").textContent;
+//   const moves = document.querySelector(".totalMoves").textContent;
+//   const stars = document.querySelector(".starCount").textContent;
+
+//   if (username && score && time && moves && stars) {
+//       let statistics = [
+//     new StorageObject(username, score, time, moves, stars)
+//   ];
+//   localStorage.setItem("statistics", JSON.stringify(statistics));
+//   const data = JSON.parse(localStorage.getItem("statistics"));
+//   creatingElements(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
+//   console.log(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
+//   }
+
+// }
+
+// function creatingElements() {
+//   const table = document.querySelector(".table tbody");
+//   const tr = document.createElement("tr");
+//   const tdName = document.createElement("td");
+//   const tdScore = document.createElement("td");
+//   const tdTime = document.createElement("td");
+//   const tdMoves = document.createElement("td");
+//   const tdStars = document.createElement("td");
+//   tdName.textContent = StorageObject.name[storageLenght];
+//   tdScore.textContent = StorageObject.score[storageLenght];
+//   tdTime.textContent = StorageObject.time[storageLenght];
+//   tdMoves.textContent = StorageObject.moves[storageLenght];
+//   tdStars.textContent = StorageObject.stars[storageLenght];
+//   tr.appendChild(tdName);
+//   tr.appendChild(tdScore);
+//   tr.appendChild(tdTime);
+//   tr.appendChild(tdMoves);
+//   tr.appendChild(tdStars);
+//   table.appendChild(tr);
+// }
 
 
 
