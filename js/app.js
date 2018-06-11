@@ -279,7 +279,6 @@ function gameStats() {
   starCount.textContent = starsLeft;
   totalMoves.textContent = moves;
   score.textContent = totalScore;
-
 }
 
 
@@ -297,7 +296,7 @@ function winnerStart() {
 }
 
 /** 
-* @description Opening Highscore modal when clicked on Highscore button
+* @description Opening Highscore modal when clicked on Highscore button and going back when clicking Back
 */
 
 
@@ -317,7 +316,62 @@ function backMenu() {
   highscoreModal.style.visibility = "hidden";
 }
 
+/** 
+* @description Storing the scores locally
+*/
 
+let StorageObject = function (username, score, time, moves, stars) {
+  this.username = username;
+  this.score = score;
+  this.time = time;
+  this.moves = moves;
+  this.stars = stars;
+}
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", storingStats);
+
+
+function storingStats() {
+
+  const input = document.querySelector(".name");
+  const username = input.value;
+  const score = document.querySelector(".score").textContent;
+  const time = document.querySelector(".playTime").textContent;
+  const moves = document.querySelector(".totalMoves").textContent;
+  const stars = document.querySelector(".starCount").textContent;
+
+  if (username && score && time && moves && stars) {
+      let statistics = [
+    new StorageObject(username, score, time, moves, stars)
+  ];
+  localStorage.setItem("statistics", JSON.stringify(statistics));
+  const data = JSON.parse(localStorage.getItem("statistics"));
+  creatingElements(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
+  console.log(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
+  }
+
+}
+
+function creatingElements(name, score, time, moves, stars) {
+  const table = document.querySelector(".table tbody");
+  const tr = document.createElement("tr");
+  const tdName = document.createElement("td");
+  const tdScore = document.createElement("td");
+  const tdTime = document.createElement("td");
+  const tdMoves = document.createElement("td");
+  const tdStars = document.createElement("td");
+  tdName.textContent = name;
+  tdScore.textContent = score;
+  tdTime.textContent = time;
+  tdMoves.textContent = moves;
+  tdStars.textContent = stars;
+  tr.appendChild(tdName);
+  tr.appendChild(tdScore);
+  tr.appendChild(tdTime);
+  tr.appendChild(tdMoves);
+  tr.appendChild(tdStars);
+  table.appendChild(tr);
+}
 
 
 

@@ -373,5 +373,12 @@ body {
 }
 
 
+td {
+
+	text-align: center;
+	padding-bottom: .8em;
+	font-style: italic;
+}
+
 
 
