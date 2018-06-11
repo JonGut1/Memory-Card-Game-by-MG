@@ -320,18 +320,20 @@ function backMenu() {
 * @description Storing the scores locally
 */
 
-let StorageObject = function (username, score, time, moves, stars) {
+let gameNumber = 0;
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", storingStats);
+
+
+function storingStats() {
+
+  let StorageObject = function (username, score, time, moves, stars) {
   this.username = username;
   this.score = score;
   this.time = time;
   this.moves = moves;
   this.stars = stars;
 }
-const submit = document.querySelector(".submit");
-submit.addEventListener("click", storingStats);
-
-
-function storingStats() {
 
   const input = document.querySelector(".name");
   const username = input.value;
@@ -341,13 +343,16 @@ function storingStats() {
   const stars = document.querySelector(".starCount").textContent;
 
   if (username && score && time && moves && stars) {
+      gameNumber++;
+
       let statistics = [
     new StorageObject(username, score, time, moves, stars)
   ];
-  localStorage.setItem("statistics", JSON.stringify(statistics));
-  const data = JSON.parse(localStorage.getItem("statistics"));
+  localStorage.setItem(gameNumber, JSON.stringify(statistics));
+  const data = JSON.parse(localStorage.getItem(gameNumber));
   creatingElements(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
   console.log(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
+  console.log(data.username, data.score, data.time, data.moves, data.stars);
   }
 
 }
