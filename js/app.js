@@ -263,6 +263,7 @@ function winner() {
 * @description Adding the game statistics and score to the Winner's Modal
 */
 
+
 function gameStats() {
   const playTime = document.querySelector(".playTime");
   const score = document.querySelector(".score");
@@ -320,97 +321,63 @@ function backMenu() {
 */
 
 const submit = document.querySelector(".submit");
-submit.addEventListener("click", storeScores);
+const highscoreBtn = document.querySelectorAll(".highscore");
+highscoreBtn[0].addEventListener("click", createElement);
+highscoreBtn[1].addEventListener("click",createElement);
+submit.addEventListener("click", submitStats);
 let StorageObject = {
-  gameNumber: 0,
+  gamesPlayed: 0,
   username : [],
   score : [],
   time : [],
   moves : [],
   stars : []
 }
-let gameNumber = StorageObject.gameNumber;
 
 
-function storeScores() {
-  const input = document.querySelector(".name");
-  const username = input.value;
+function submitStats() {
+  const username = document.querySelector(".name").value;
   const score = document.querySelector(".score").textContent;
   const time = document.querySelector(".playTime").textContent;
-  const moves = document.querySelector(".totalMoves").textContent;
   const stars = document.querySelector(".starCount").textContent;
-
-  if (username && score && time && moves && stars) {
-    StorageObject.username.push(username);
-    StorageObject.score.push(score);
-    StorageObject.time.push(time);
-    StorageObject.moves.push(moves);
-    StorageObject.stars.push(stars);
-    localStorage.setItem("statistics", JSON.stringify(StorageObject));
-    createElement();
+  StorageObject.gamesPlayed++;
+  StorageObject.username.push(username);
+  StorageObject.score.push(score);
+  StorageObject.time.push(time);
+  StorageObject.moves.push(moves);
+  StorageObject.stars.push(stars);
+  localStorage.setItem("cardGameStatistics", JSON.stringify(StorageObject));
+  if (localStorage.cardGameStatistics) {
+    let gameStatistics = localStorage.getItem("cardGameStatistics");
+    localStorage.setItem("cardGameStatistics", JSON.stringify(StorageObject));
   }
 
 }
+
+
+
 
 
 function createElement() {
-      const data = JSON.parse(localStorage.getItem("statistics"));
-      const table = document.querySelector(".table tbody");
-      const tr = document.createElement("tr");
-      const tdName = document.createElement("td");
-      const tdScore = document.createElement("td");
-      const tdTime = document.createElement("td");
-      const tdMoves = document.createElement("td");
-      const tdStars = document.createElement("td");
-      tdName.textContent = data.username[gameNumber];
-      tdScore.textContent = data.score[gameNumber];
-      tdTime.textContent = data.time[gameNumber];
-      tdMoves.textContent = data.moves[gameNumber];
-      tdStars.textContent = data.stars[gameNumber];
-      tr.appendChild(tdName);
-      tr.appendChild(tdScore);
-      tr.appendChild(tdTime);
-      tr.appendChild(tdMoves);
-      tr.appendChild(tdStars);
-      table.appendChild(tr);
-      gameNumber++;
+  const table = document.querySelector(".tabel tbody");
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+
+  if (localStorage.cardGameStatistics) {
+    let gameCount = StorageObject.gamesPlayed -1;
+        let gameStatistics = localStorage.getItem("cardGameStatistics");
+        for (let i = 0; i >= gameCount; i++) {
+          td.textContent = gameStatistics.username[i];
+          td.textContent = gameStatistics.score[i];
+          td.textContent = gameStatistics.time[i];
+          td.textContent = gameStatistics.moves[i];
+          td.textContent = gameStatistics.stars[i];
+
+    } 
+
+  } 
+
 }
-
-/** 
-* @description Inserting data into TD
-*/
-
-
-
-/** 
-* @description Displaying the scores from localstorage
-*/
-
-
-function higschoreTable() {
-  for (let i = 0; i >= gameNumber; i++) {
-      tdName.textContent = data.username[i];
-      tdScore.textContent = data.score[i];
-      tdTime.textContent = data.time[i];
-      tdMoves.textContent = data.moves[i];
-      tdStars.textContent = data.stars[i];
-      tr.appendChild(tdName);
-      tr.appendChild(tdScore);
-      tr.appendChild(tdTime);
-      tr.appendChild(tdMoves);
-      tr.appendChild(tdStars);
-      table.appendChild(tr);
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 
