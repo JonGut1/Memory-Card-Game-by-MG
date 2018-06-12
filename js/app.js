@@ -319,19 +319,18 @@ function backMenu() {
 * @description Storing the scores locally
 */
 
-/** 
-* @description Storing the scores locally
-*/
-
+const submit = document.querySelector(".submit");
+submit.addEventListener("click", storeScores);
 let StorageObject = {
+  gameNumber: 0,
   username : [],
   score : [],
   time : [],
   moves : [],
   stars : []
 }
-const submit = document.querySelector(".submit");
-submit.addEventListener("click", storeScores);
+let gameNumber = StorageObject.gameNumber;
+
 
 function storeScores() {
   const input = document.querySelector(".name");
@@ -347,20 +346,15 @@ function storeScores() {
     StorageObject.time.push(time);
     StorageObject.moves.push(moves);
     StorageObject.stars.push(stars);
-
     localStorage.setItem("statistics", JSON.stringify(StorageObject));
-    const data = JSON.parse(localStorage.getItem("statistics"));
-    console.log(data);
     createElement();
-
-
-
   }
-  console.log(StorageObject);
+
 }
 
 
 function createElement() {
+      const data = JSON.parse(localStorage.getItem("statistics"));
       const table = document.querySelector(".table tbody");
       const tr = document.createElement("tr");
       const tdName = document.createElement("td");
@@ -368,17 +362,45 @@ function createElement() {
       const tdTime = document.createElement("td");
       const tdMoves = document.createElement("td");
       const tdStars = document.createElement("td");
-      tdName.textContent = data.username[0];
-      tdScore.textContent = data.score[0];
-      tdTime.textContent = data.time[0];
-      tdMoves.textContent = data.moves[0];
-      tdStars.textContent = data.stars[0];
+      tdName.textContent = data.username[gameNumber];
+      tdScore.textContent = data.score[gameNumber];
+      tdTime.textContent = data.time[gameNumber];
+      tdMoves.textContent = data.moves[gameNumber];
+      tdStars.textContent = data.stars[gameNumber];
       tr.appendChild(tdName);
       tr.appendChild(tdScore);
       tr.appendChild(tdTime);
       tr.appendChild(tdMoves);
       tr.appendChild(tdStars);
       table.appendChild(tr);
+      gameNumber++;
+}
+
+/** 
+* @description Inserting data into TD
+*/
+
+
+
+/** 
+* @description Displaying the scores from localstorage
+*/
+
+
+function higschoreTable() {
+  for (let i = 0; i >= gameNumber; i++) {
+      tdName.textContent = data.username[i];
+      tdScore.textContent = data.score[i];
+      tdTime.textContent = data.time[i];
+      tdMoves.textContent = data.moves[i];
+      tdStars.textContent = data.stars[i];
+      tr.appendChild(tdName);
+      tr.appendChild(tdScore);
+      tr.appendChild(tdTime);
+      tr.appendChild(tdMoves);
+      tr.appendChild(tdStars);
+      table.appendChild(tr);
+  }
 }
 
 
@@ -393,56 +415,6 @@ function createElement() {
 
 
 
-
-
-
-
-
-
-
-
-
-// function storingStats() {
-
-//   const input = document.querySelector(".name");
-//   const username = input.value;
-//   const score = document.querySelector(".score").textContent;
-//   const time = document.querySelector(".playTime").textContent;
-//   const moves = document.querySelector(".totalMoves").textContent;
-//   const stars = document.querySelector(".starCount").textContent;
-
-//   if (username && score && time && moves && stars) {
-//       let statistics = [
-//     new StorageObject(username, score, time, moves, stars)
-//   ];
-//   localStorage.setItem("statistics", JSON.stringify(statistics));
-//   const data = JSON.parse(localStorage.getItem("statistics"));
-//   creatingElements(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
-//   console.log(data[0].username, data[0].score, data[0].time, data[0].moves, data[0].stars);
-//   }
-
-// }
-
-// function creatingElements() {
-//   const table = document.querySelector(".table tbody");
-//   const tr = document.createElement("tr");
-//   const tdName = document.createElement("td");
-//   const tdScore = document.createElement("td");
-//   const tdTime = document.createElement("td");
-//   const tdMoves = document.createElement("td");
-//   const tdStars = document.createElement("td");
-//   tdName.textContent = StorageObject.name[storageLenght];
-//   tdScore.textContent = StorageObject.score[storageLenght];
-//   tdTime.textContent = StorageObject.time[storageLenght];
-//   tdMoves.textContent = StorageObject.moves[storageLenght];
-//   tdStars.textContent = StorageObject.stars[storageLenght];
-//   tr.appendChild(tdName);
-//   tr.appendChild(tdScore);
-//   tr.appendChild(tdTime);
-//   tr.appendChild(tdMoves);
-//   tr.appendChild(tdStars);
-//   table.appendChild(tr);
-// }
 
 
 
