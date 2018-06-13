@@ -346,12 +346,21 @@ function submitStats() {
   StorageObject.time.push(time);
   StorageObject.moves.push(moves);
   StorageObject.stars.push(stars);
-  localStorage.setItem("cardGameStatistics", JSON.stringify(StorageObject));
-  if (localStorage.cardGameStatistics) {
-    let gameStatistics = localStorage.getItem("cardGameStatistics");
-    localStorage.setItem("cardGameStatistics", JSON.stringify(StorageObject));
+  if (username) {
+    if (localStorage.cardGameStatistics) {
+      let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
+      gameStatistics.gamesPlayed++;
+      gameStatistics.username.push(username);
+      gameStatistics.score.push(score);
+      gameStatistics.time.push(time);
+      gameStatistics.moves.push(moves);
+      gameStatistics.stars.push(stars);
+      console.log(gameStatistics);
+      localStorage.setItem("cardGameStatistics", JSON.stringify(gameStatistics));
+  } else {
+      localStorage.setItem("cardGameStatistics", JSON.stringify(StorageObject));
+    } 
   }
-
 }
 
 
@@ -359,22 +368,34 @@ function submitStats() {
 
 
 function createElement() {
-  const table = document.querySelector(".tabel tbody");
-  const tr = document.createElement("tr");
-  const td = document.createElement("td");
+  const table = document.querySelector(".table tbody");
+  let tr = document.createElement("tr");
+  let tdScore = document.createElement("td");
+  let tdUsername = document.createElement("td");
+  let tdTime = document.createElement("td");
+  let tdStars = document.createElement("td");
+  let tdMoves = document.createElement("td");
 
   if (localStorage.cardGameStatistics) {
-    let gameCount = StorageObject.gamesPlayed -1;
-        let gameStatistics = localStorage.getItem("cardGameStatistics");
-        for (let i = 0; i >= gameCount; i++) {
-          td.textContent = gameStatistics.username[i];
-          td.textContent = gameStatistics.score[i];
-          td.textContent = gameStatistics.time[i];
-          td.textContent = gameStatistics.moves[i];
-          td.textContent = gameStatistics.stars[i];
 
+    console.log(localStorage.cardGameStatistics);
+    let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
+    let gameCount = gameStatistics.gamesPlayed - 1;
+    console.log(gameCount);
+    console.log(gameStatistics);
+        for (let i = 0; i <= gameCount; i++) {
+          table.appendChild(tr);
+          tdUsername.textContent = gameStatistics.username[i];
+          tdScore.textContent = gameStatistics.score[i];
+          tdTime.textContent = gameStatistics.time[i];
+          tdMoves.textContent = gameStatistics.moves[i];
+          tdStars.textContent = gameStatistics.stars[i]; 
+          tr.appendChild(tdUsername);
+          tr.appendChild(tdScore);
+          tr.appendChild(tdTime); 
+          tr.appendChild(tdMoves);
+          tr.appendChild(tdStars);
     } 
-
   } 
 
 }
