@@ -368,9 +368,11 @@ function submitStats() {
 * @description Creating a table and inserting all the data from the local storage after Highscore button is clicked. Every time highscore button is clicked table is cleaned and all the data is re-inserted
 */
 
+
 const table = document.querySelector(".table tbody");
-let tr = document.createElement("tr");
+
 function createElement() {
+  let tr = document.createElement("tr");
   table.textContent = ""; //Cleaning the table
   if (localStorage.cardGameStatistics) {
     let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
@@ -406,6 +408,7 @@ function createElement() {
 }
 
 function createTH() {
+  let tr = document.createElement("tr");
   let thStars = document.createElement("th");
   let thScore = document.createElement("th");
   let thTime = document.createElement("th");
