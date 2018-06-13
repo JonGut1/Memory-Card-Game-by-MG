@@ -364,46 +364,65 @@ function submitStats() {
 }
 
 
+/** 
+* @description Creating a table and inserting all the data from the local storage after Highscore button is clicked. Every time highscore button is clicked table is cleaned and all the data is re-inserted
+*/
 
-
-
+const table = document.querySelector(".table tbody");
+let tr = document.createElement("tr");
 function createElement() {
-  const table = document.querySelector(".table tbody");
-  let tr = document.createElement("tr");
-  let tdScore = document.createElement("td");
-  let tdUsername = document.createElement("td");
-  let tdTime = document.createElement("td");
-  let tdStars = document.createElement("td");
-  let tdMoves = document.createElement("td");
-
+  table.textContent = ""; //Cleaning the table
   if (localStorage.cardGameStatistics) {
-
-    console.log(localStorage.cardGameStatistics);
     let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
     let gameCount = gameStatistics.gamesPlayed - 1;
-    console.log(gameCount);
-    console.log(gameStatistics);
-        for (let i = 0; i <= gameCount; i++) {
-          table.appendChild(tr);
-          tdUsername.textContent = gameStatistics.username[i];
-          tdScore.textContent = gameStatistics.score[i];
-          tdTime.textContent = gameStatistics.time[i];
-          tdMoves.textContent = gameStatistics.moves[i];
-          tdStars.textContent = gameStatistics.stars[i]; 
-          tr.appendChild(tdUsername);
-          tr.appendChild(tdScore);
-          tr.appendChild(tdTime); 
-          tr.appendChild(tdMoves);
-          tr.appendChild(tdStars);
-    } 
+  //Creating TH and inserting after the click
+    createTH();
+  //Starting a for loop to iterate through all the data and inserting into TD
+      for (let i = 0; i <= gameCount; i++) {
+        let tdScore = document.createElement("td");
+        let tdUsername = document.createElement("td");
+        let tdTime = document.createElement("td");
+        let tdStars = document.createElement("td");
+        let tdMoves = document.createElement("td");
+        tdUsername.textContent = gameStatistics.username[i];
+        tdScore.textContent = gameStatistics.score[i];
+        tdTime.textContent = gameStatistics.time[i];
+        tdMoves.textContent = gameStatistics.moves[i];
+        tdStars.textContent = gameStatistics.stars[i]; 
+        //Inserting all the TD into Table rows 
+        tr = document.createElement("tr");
+        tr.appendChild(tdUsername);
+        tr.appendChild(tdScore);
+        tr.appendChild(tdTime); 
+        tr.appendChild(tdMoves);
+        tr.appendChild(tdStars);
+        table.appendChild(tr);
+          
   } 
+} else {
+  createTH();
+}
 
 }
 
-
-
-
-
+function createTH() {
+  let thStars = document.createElement("th");
+  let thScore = document.createElement("th");
+  let thTime = document.createElement("th");
+  let thMoves = document.createElement("th");
+  let thName = document.createElement("th");
+  thName.textContent = "Name";
+  thScore.textContent = "Score";
+  thTime.textContent = "Time";
+  thMoves.textContent = "Moves";
+  thStars.textContent = "Stars";
+  tr.appendChild(thName);
+  tr.appendChild(thScore);
+  tr.appendChild(thTime);
+  tr.appendChild(thMoves);
+  tr.appendChild(thStars);
+  table.appendChild(tr);
+}
 
 
 
