@@ -340,6 +340,11 @@ function submitStats() {
   const score = document.querySelector(".score").textContent;
   const time = document.querySelector(".playTime").textContent;
   const stars = document.querySelector(".starCount").textContent;
+  const nameAnim = document.querySelector(".name");
+  nameAnim.readOnly = true;
+  nameAnim.style.background = "rgba(245, 217, 129, 0)";
+  submit.style.opacity = "0";
+  submit.style.visibility = "hidden";
   StorageObject.gamesPlayed++;
   StorageObject.username.push(username);
   StorageObject.score.push(score);
@@ -374,38 +379,41 @@ const table = document.querySelector(".table tbody");
 function createElement() {
   let tr = document.createElement("tr");
   table.textContent = ""; //Cleaning the table
-  if (localStorage.cardGameStatistics) {
-    let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
-    let gameCount = gameStatistics.gamesPlayed - 1;
-  //Creating TH and inserting after the click
+    if (localStorage.cardGameStatistics) {
+      let gameStatistics = JSON.parse(localStorage.getItem("cardGameStatistics"));
+      let gameCount = gameStatistics.gamesPlayed - 1;
+    //Creating TH and inserting after the click
+      createTH();
+    //Starting a for loop to iterate through all the data and inserting into TD
+        for (let i = 0; i <= gameCount; i++) {
+          let tdScore = document.createElement("td");
+          let tdUsername = document.createElement("td");
+          let tdTime = document.createElement("td");
+          let tdStars = document.createElement("td");
+          let tdMoves = document.createElement("td");
+          tdUsername.textContent = gameStatistics.username[i];
+          tdScore.textContent = gameStatistics.score[i];
+          tdTime.textContent = gameStatistics.time[i];
+          tdMoves.textContent = gameStatistics.moves[i];
+          tdStars.textContent = gameStatistics.stars[i]; 
+          //Inserting all the TD into Table rows 
+          tr = document.createElement("tr");
+          tr.appendChild(tdUsername);
+          tr.appendChild(tdScore);
+          tr.appendChild(tdTime); 
+          tr.appendChild(tdMoves);
+          tr.appendChild(tdStars);
+          table.appendChild(tr);
+            
+    } 
+  } else {
     createTH();
-  //Starting a for loop to iterate through all the data and inserting into TD
-      for (let i = 0; i <= gameCount; i++) {
-        let tdScore = document.createElement("td");
-        let tdUsername = document.createElement("td");
-        let tdTime = document.createElement("td");
-        let tdStars = document.createElement("td");
-        let tdMoves = document.createElement("td");
-        tdUsername.textContent = gameStatistics.username[i];
-        tdScore.textContent = gameStatistics.score[i];
-        tdTime.textContent = gameStatistics.time[i];
-        tdMoves.textContent = gameStatistics.moves[i];
-        tdStars.textContent = gameStatistics.stars[i]; 
-        //Inserting all the TD into Table rows 
-        tr = document.createElement("tr");
-        tr.appendChild(tdUsername);
-        tr.appendChild(tdScore);
-        tr.appendChild(tdTime); 
-        tr.appendChild(tdMoves);
-        tr.appendChild(tdStars);
-        table.appendChild(tr);
-          
-  } 
-} else {
-  createTH();
+  }
 }
 
-}
+/** 
+* @description Function for creating table headers
+*/
 
 function createTH() {
   let tr = document.createElement("tr");
@@ -426,6 +434,7 @@ function createTH() {
   tr.appendChild(thStars);
   table.appendChild(tr);
 }
+
 
 
 

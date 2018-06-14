@@ -30,12 +30,14 @@ h2,
 .timeCount,
 .moves,
 .menu {
+	font-family: 'Amatic SC', cursive;
+	font-weight: 900;
 	color: #008f95;
 }
 .startHeader {
-	font-size: 1.6em;
+	font-size: 2.3em;
 	text-transform: uppercase;
-	font-weight: 300;
+	font-weight: 600;
 	letter-spacing: .1em;
 	text-align: center;
 	padding-top: 1em;
@@ -43,10 +45,11 @@ h2,
 }
 
 .heading {
+	font-family: 'Amatic SC', cursive;
 	text-transform: uppercase;
-	font-weight: 300;
+	font-weight: 800;
 	letter-spacing: .3em;
-	font-size: 3em;
+	font-size: 3.5em;
 	text-align: center;
 }
 
@@ -117,9 +120,12 @@ body {
 
 .start, 
 .highscore {
+	font-family: 'Poor Story', cursive;
 	display: block;
 	text-transform: uppercase;
 	font-size: 1.5em;
+	letter-spacing: .2em;
+	font-weight: 600;
 	margin: auto;
 	height: 5em;
 	width: 15em;
@@ -144,7 +150,7 @@ body {
 .timeCount,
 .menu {
 	display: flex;
-	font-size: 1.7em;
+	font-size: 2em;
 	text-transform: none;
 	letter-spacing: 0;
 }
@@ -281,16 +287,28 @@ body {
 }
 
 .congratsHeader {
+	font-family: 'Monoton', cursive;
+	font-style: italic;
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: .1em;
 	font-size: 2em;
 	line-height: 1.5em;
 }
 
 .scoreTable {
+	font-family: 'Amatic SC', cursive;
 	color: #008f95;
 	display: flex;
 	flex-direction: column;
 	text-align: left;
 	width: 15em;
+}
+
+.scoreTable p {
+	font-weight: 800;
+	letter-spacing: .1em;
+	font-size: 1.5em;
 }
 
 .winButtons {
@@ -302,6 +320,9 @@ body {
 
 .highWinner,
 .highRestart {
+	font-family: 'Poor Story', cursive;
+	letter-spacing: .2em;
+	font-weight: 600;
 	display: block;
 	text-transform: uppercase;
 	font-size: 1.2em;
@@ -331,8 +352,15 @@ body {
 }
 
 .submit {
+	font-family: 'Poor Story', cursive;
+	letter-spacing: .2em;
+	font-weight: 600;
 	text-transform: uppercase;
 	padding: .4em;
+	transition: .6s;
+	-webkit-transition: .6s;
+	-ms-transition: .6s;
+	-moz-transition: .6s;
 }
 
 .submit:hover {
@@ -340,11 +368,19 @@ body {
 }
 
 .name {
+	font-family: 'Poor Story', cursive;
+	color: #008f95;
+	letter-spacing: .2em;
+	font-weight: 600;
 	background: #f5d981;
 	border: none;
 	border-radius: 5px;
 	height: 2em;
 	outline: none;
+	transition: .6s;
+	-webkit-transition: .6s;
+	-ms-transition: .6s;
+	-moz-transition: .6s;
 }
 
 .name::placeholder {
@@ -374,10 +410,17 @@ body {
 
 
 td {
-
+	font-family: 'Amatic SC', cursive;
+	font-weight: 800;
 	text-align: center;
 	padding-bottom: .8em;
 	font-style: italic;
+}
+
+th {
+	font-family: 'Poor Story', cursive;
+	font-weight: 900;
+	font-size: 1.1em;
 }
 
 

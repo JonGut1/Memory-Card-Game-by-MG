@@ -21,9 +21,12 @@
 
 @media screen and (max-width: 580px) {
 	*,
-	.startHeader,
-	.heading  {
+	.startHeader {
 		letter-spacing: 0;
+	}
+
+	.heading {
+		letter-spacing: .2em;
 	}
 
 	.start,
@@ -52,7 +55,7 @@
 	.stars,
 	.moves,
 	.timeCount {
-		font-size: 1.5em;
+		font-size: 1.7em;
 	}
 
 	.menu {
@@ -125,7 +128,7 @@
 	.stars,
 	.moves,
 	.timeCount {
-		font-size: 1.4em;
+		font-size: 1.6em;
 		justify-content: space-around;
 	}
 
@@ -164,7 +167,7 @@
 
 @media screen and (max-width: 415px) and (min-width: 320px) {
 	.startHeader {
-		font-size: 1.3em;
+		font-size: 2em;
 	}
 
 	.heading {
@@ -194,6 +197,9 @@
 		padding-bottom: .2em;
 	}
 
+	.congratsHeader {
+		font-size: 1.7em;
+	}
 	
 	.scoreInput {
 		margin: 0 0 1em 0;
