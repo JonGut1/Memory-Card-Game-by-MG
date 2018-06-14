@@ -415,6 +415,7 @@ td {
 	text-align: center;
 	padding-bottom: .8em;
 	font-style: italic;
+	width: 10%;
 }
 
 th {
@@ -422,6 +423,7 @@ th {
 	font-weight: 900;
 	font-size: 1.1em;
 	text-align: center;
+	width: 10%;
 }
 
 
