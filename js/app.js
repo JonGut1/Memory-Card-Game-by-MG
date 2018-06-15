@@ -293,9 +293,9 @@ const winnerRestart= document.querySelector(".highRestart");
 winnerRestart.addEventListener("click", winnerStart);
 
 function winnerStart() {
+  nameAnim.value = "";
   nameAnim.readOnly = false;
   nameAnim.style.opacity = "1";
-  nameAnim.value = "";
   submit.style.opacity = "1";
   winModal.style.visibility = "hidden";
   gameStart();

@@ -381,10 +381,6 @@ body {
 	border-radius: 5px;
 	height: 2em;
 	outline: none;
-	transition: .6s;
-	-webkit-transition: .6s;
-	-ms-transition: .6s;
-	-moz-transition: .6s;
 }
 
 .name::placeholder {
@@ -414,8 +410,8 @@ body {
 
 
 td {
-	font-family: 'Amatic SC', cursive;
-	font-weight: 800;
+	font-family: 'Poor Story', cursive;
+	font-weight: 300;
 	text-align: center;
 	padding-bottom: .8em;
 	font-style: italic;
@@ -425,7 +421,7 @@ td {
 th {
 	font-family: 'Poor Story', cursive;
 	font-weight: 900;
-	font-size: 1.1em;
+	font-size: 1.3em;
 	text-align: center;
 	width: 10%;
 }
