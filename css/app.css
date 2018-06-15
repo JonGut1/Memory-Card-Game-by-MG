@@ -363,6 +363,10 @@ body {
 	-moz-transition: .6s;
 }
 
+.submitAnm {
+
+}
+
 .submit:hover {
 	background: #E44D26;
 }

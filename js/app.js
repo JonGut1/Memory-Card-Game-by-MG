@@ -252,6 +252,7 @@ function winner() {
   if (matchedCards.length === 16) {
     gameStats();
     winModal.style.visibility = "visible";
+    submit.style.visibility = "visible";
     panelHidden();
     cardReset();
   }
@@ -292,6 +293,10 @@ const winnerRestart= document.querySelector(".highRestart");
 winnerRestart.addEventListener("click", winnerStart);
 
 function winnerStart() {
+  nameAnim.readOnly = false;
+  nameAnim.style.opacity = "1";
+  nameAnim.value = "";
+  submit.style.opacity = "1";
   winModal.style.visibility = "hidden";
   gameStart();
 }
@@ -322,6 +327,7 @@ function backMenu() {
 
 const submit = document.querySelector(".submit");
 const highscoreBtn = document.querySelectorAll(".highscore");
+const nameAnim = document.querySelector(".name");
 highscoreBtn[0].addEventListener("click", createElement);
 highscoreBtn[1].addEventListener("click",createElement);
 submit.addEventListener("click", submitStats);
@@ -340,7 +346,6 @@ function submitStats() {
   const score = document.querySelector(".score").textContent;
   const time = document.querySelector(".playTime").textContent;
   const stars = document.querySelector(".starCount").textContent;
-  const nameAnim = document.querySelector(".name");
   nameAnim.readOnly = true;
   nameAnim.style.background = "rgba(245, 217, 129, 0)";
   submit.style.opacity = "0";
