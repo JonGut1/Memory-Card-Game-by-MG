@@ -357,14 +357,6 @@ body {
 	font-weight: 600;
 	text-transform: uppercase;
 	padding: .4em;
-	transition: .6s;
-	-webkit-transition: .6s;
-	-ms-transition: .6s;
-	-moz-transition: .6s;
-}
-
-.submitAnm {
-
 }
 
 .submit:hover {
@@ -425,6 +417,9 @@ th {
 	text-align: center;
 	width: 10%;
 }
+
+
+/* Transition class*/
 
 
 
