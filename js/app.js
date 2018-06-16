@@ -1,3 +1,4 @@
+(function() {
 /** 
 * @description List that holds all the cards
 */
@@ -5,7 +6,7 @@
 const cards = document.querySelectorAll(".card");
 const cardList = [];
 for (let i = 0; i < cards.length; i++) {
-	cardList.push(cards[i]);
+  cardList.push(cards[i]);
 }
 
 
@@ -32,10 +33,10 @@ function shuffle(array) {
 */
 
 function cardHTML() {
-	const shuffledCards = shuffle(cardList);
-	const deck = document.querySelector('.board');
-	for (let i = 0; i < shuffledCards.length; i++) {
-		deck.appendChild(shuffledCards[i]);
+  const shuffledCards = shuffle(cardList);
+  const deck = document.querySelector('.board');
+  for (let i = 0; i < shuffledCards.length; i++) {
+    deck.appendChild(shuffledCards[i]);
     }
 }
 cardHTML();
@@ -440,6 +441,7 @@ function createTH() {
   tr.appendChild(thStars);
   table.appendChild(tr);
 }
+})();
 
 
 
