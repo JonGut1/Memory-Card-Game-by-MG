@@ -251,6 +251,7 @@ const winModal = document.querySelector(".winModal");
 function winner() {
   if (matchedCards.length === 16) {
     gameStats();
+    submit.style.cursor = "pointer";
     winModal.style.visibility = "visible";
     panelHidden();
     cardReset();
@@ -296,6 +297,7 @@ function winnerStart() {
   nameAnim.readOnly = false;
   nameAnim.style.opacity = "1";
   nameAnim.style.background = "rgba(245, 217, 129, 1)";
+  submit.style.opacity = "1";
   winModal.style.visibility = "hidden";
   gameStart();
 }
@@ -347,7 +349,8 @@ function submitStats() {
   const stars = document.querySelector(".starCount").textContent;
   nameAnim.readOnly = true;
   nameAnim.style.background = "rgba(245, 217, 129, 0)";
-  submit.style.visibility = "hidden";
+  submit.style.opacity = "0";
+  submit.style.cursor = "default";
   StorageObject.gamesPlayed++;
   StorageObject.username.push(username);
   StorageObject.score.push(score);
