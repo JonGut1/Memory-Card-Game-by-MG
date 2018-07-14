@@ -2,11 +2,11 @@
 
 ## Table of content
 
-* [About] (#about)
-* [How the game works] (#how the game works)
-* [Resources] (#resources)
-* [Dependencies] (#dependencies)
-* [Known Bugs] (#kniwn bugs)
+* About
+* How the game works
+* Resources
+* Dependencies
+* Known Bugs
 
 
 ## About
