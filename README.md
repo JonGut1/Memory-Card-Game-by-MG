@@ -24,18 +24,18 @@ All the gaming logic was built by using plain **JavaScript**. The game was style
 
 #### Styling 
 
-_index.html_ - contains page structure. 
-_normalize.css_ - used to make the default styling more consistent, for easier custom styling throughout the project.
-_app.css_ - all the game's styling. 
-_responsive.css_ -  used to make the page responsive on multiple screen sizes. 
-_Google Fonts_ - styles the fonts of the text elements of the page. These fonts were used: (https://fonts.googleapis.com/css?family=Amatic+SC|Monoton|Poor+Story). 
-_Bootsrap_ - used to add icons such as restart button, star icons and the game card icons. 
+* _index.html_ - contains page structure.
+* _normalize.css_ - used to make the default styling more consistent, for easier custom styling throughout the project.
+* _app.css_ - all the game's styling. 
+* _responsive.css_ -  used to make the page responsive on multiple screen sizes. 
+* _Google Fonts_ - styles the fonts of the text elements of the page. These fonts were used: (https://fonts.googleapis.com/css?family=Amatic+SC|Monoton|Poor+Story). 
+* _Bootsrap_ - used to add icons such as restart button, star icons and the game card icons. 
 
 
 #### Game Logic
 
-_app.js_ - used for all the game's logic. Makes the game interactice. Creates game mechanics. 
-_Local Browser Storage_ - stores player's score with all the statistics (e.g. score, time, moves stars). Player statistics is stored only if the player chooses to, by inserting his name and cicking submit on the _Winner_ screen.  
+* _app.js_ - used for all the game's logic. Makes the game interactice. Creates game mechanics. 
+* _Local Browser Storage_ - stores player's score with all the statistics (e.g. score, time, moves stars). Player statistics is stored only if the player chooses to, by inserting his name and cicking submit on the _Winner_ screen.  
 
 ## Known Bugs
 
